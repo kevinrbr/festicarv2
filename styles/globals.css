@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,301,701,300,501,401,901,400&f[]=clash-grotesk@700,600&display=swap";
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Satoshi', sans-serif;
 }
+
 
 a {
   color: inherit;
