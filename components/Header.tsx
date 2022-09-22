@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import placeholder from "./../assets/images/profile_placeholder.png";
 
 export const Header = () => {
   const router = useRouter();
@@ -19,7 +20,9 @@ export const Header = () => {
             </a>
           </Link>
         )}
-        {/* Profile Image here */}
+        <Link href="/login">
+          <Image width={24} height={24} src={placeholder} />
+        </Link>
       </div>
     </header>
   );
