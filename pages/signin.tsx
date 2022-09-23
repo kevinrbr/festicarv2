@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import supabase from "../utils/supabase";
 import Link from "next/link";
 import { NextPage } from "next";
+import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 
 const SignIn: NextPage = () => {
   const router = useRouter();
@@ -29,12 +30,13 @@ const SignIn: NextPage = () => {
     <div className="h-screen flex items-center justify-center bg-primary-300">
       <div className="max-w-lg w-full">
         <Link href="/">
-          <a className="text-white absolute top-8 left-12">
-            Retourner sur Festicar
+          <a className="text-white absolute top-8 left-12 flex items-center">
+            <ArrowLongLeftIcon width={30} />
+            <p className="ml-5">Retourner sur Festicar</p>
           </a>
         </Link>
         <h1 className="text-3xl font-semibold text-center text-white">
-          Sign in to your account
+          Connectez-vous
         </h1>
 
         <div className="flex flex-col p-6">

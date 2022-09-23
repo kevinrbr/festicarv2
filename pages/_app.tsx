@@ -8,7 +8,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   console.log(router);
   return (
     <div>
-      {router.pathname !== "/signin" && <Header />}
+      {router.pathname !== "/signin" && router.pathname !== "/signup" ? (
+        <Header />
+      ) : null}
       <Component {...pageProps} />
     </div>
   );
