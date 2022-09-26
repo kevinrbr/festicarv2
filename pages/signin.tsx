@@ -1,22 +1,20 @@
-import React, { useState } from "react";
-
+import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/router";
-import supabase from "../utils/supabase";
+import supabase from "../lib/api/supabase";
 import Link from "next/link";
 import { NextPage } from "next";
 import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
+import { IFormInput } from "../types/login/FormInput";
 
 const SignIn: NextPage = () => {
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { register, handleSubmit } = useForm<IFormInput>();
 
-  const handleSignIn = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const { error } = await supabase.auth.signIn({
-      email,
-      password,
+      email: data.email,
+      password: data.password,
     });
 
     if (error) {
@@ -42,27 +40,20 @@ const SignIn: NextPage = () => {
         </h1>
 
         <div className="flex flex-col p-6">
-          <form className="flex flex-col" onSubmit={handleSignIn}>
+          <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="email" className="text-gray-200">
               Email
             </label>
             <input
+              {...register("email")}
               className="py-2 px-4 rounded-md focus:outline-none focus:ring-2"
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
-
             <label htmlFor="password" className="mt-6 text-gray-200">
               Mot de passe
             </label>
             <input
+              {...register("password")}
               className="py-2 px-4 rounded-md focus:outline-none focus:ring-2"
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
 
             <button

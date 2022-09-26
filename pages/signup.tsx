@@ -1,34 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { useRouter } from "next/router";
-import supabase from "../utils/supabase";
+import supabase from "../lib/api/supabase";
 import { NextPage } from "next";
 import Link from "next/link";
 
 import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
-
-interface IFormInput {
-  firstName: String;
-  lastName: String;
-  email: string;
-  password: string;
-}
+import { IFormInput } from "../types/login/FormInput";
 
 const SignUp: NextPage = () => {
   const router = useRouter();
   const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    console.log(data);
 
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const { user, error } = await supabase.auth.signUp({
       email: data.email,
       password: data.password,
     });
 
-    if (user) {
-      updateProfile(user.id, data.firstName);
-    }
+    user && updateProfile(user.id, data);
 
     if (error) {
       alert(JSON.stringify(error));
@@ -37,10 +28,10 @@ const SignUp: NextPage = () => {
     }
   };
 
-  const updateProfile = async (userId: string, data: String) => {
+  const updateProfile = async (userId: string, data: IFormInput) => {
     const updates = {
       user_id: userId,
-      name: data,
+      name: data.firstName,
     };
 
     const { error } = await supabase.from("profiles").upsert(updates, {
@@ -97,6 +88,7 @@ const SignUp: NextPage = () => {
           <input
             {...register("password")}
             className="py-2 px-4 rounded-md focus:outline-none focus:ring-2 w-full"
+            type="password"
           />
 
           <input
