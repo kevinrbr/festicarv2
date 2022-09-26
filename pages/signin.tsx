@@ -26,6 +26,8 @@ const SignIn: NextPage = () => {
     }
   };
 
+  const user = supabase.auth.user();
+
   return (
     <div className="h-screen flex items-center justify-center bg-primary-300">
       <div className="max-w-lg w-full">
@@ -53,7 +55,7 @@ const SignIn: NextPage = () => {
             />
 
             <label htmlFor="password" className="mt-6 text-gray-200">
-              Password
+              Mot de passe
             </label>
             <input
               className="py-2 px-4 rounded-md focus:outline-none focus:ring-2"
