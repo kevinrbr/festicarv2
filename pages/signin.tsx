@@ -24,8 +24,6 @@ const SignIn: NextPage = () => {
     }
   };
 
-  const user = supabase.auth.user();
-
   return (
     <div className="h-screen flex items-center justify-center bg-primary-300">
       <div className="max-w-lg w-full">
@@ -54,17 +52,18 @@ const SignIn: NextPage = () => {
             <input
               {...register("password")}
               className="py-2 px-4 rounded-md focus:outline-none focus:ring-2"
+              type="password"
             />
 
             <button
               className="mt-10 text-lg text-white font-semibold bg-green-500 py-3 px-6 rounded-md focus:outline-none focus:ring-2"
               type="submit"
             >
-              Se connecter
+              S'enregister
             </button>
           </form>
           <Link href="/signup">
-            <a className="text-white text-center text-sm">
+            <a className="text-white text-center text-sm cursor-pointer">
               Je n'ai pas de compte
             </a>
           </Link>

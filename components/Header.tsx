@@ -13,7 +13,7 @@ export const Header = () => {
             <h1 className="font-heading font-bold text-3xl">FestiCar</h1>
           </a>
         </Link>
-        <div className="flex items-center">
+        <div className="flex items-start">
           {router.pathname != "/ajouter-trajet" && (
             <Link href="/ajouter-trajet">
               <a>
@@ -23,7 +23,7 @@ export const Header = () => {
           )}
           <Link href="/signin">
             <a>
-              <Image width={24} height={24} src={placeholder} />
+              <Image width={24} height={24} src={placeholder} />@{" "}
             </a>
           </Link>
         </div>

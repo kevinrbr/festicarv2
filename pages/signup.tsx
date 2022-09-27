@@ -66,12 +66,14 @@ const SignUp: NextPage = () => {
             type="password"
           />
 
-          <input
-            type="submit"
+          <button
             className="mt-10 text-lg text-white font-semibold bg-green-500 py-3 px-6 rounded-md focus:outline-none focus:ring-2"
-          />
+            type="submit"
+          >
+            Enregistrer
+          </button>
           <Link href="/signin">
-            <a className="text-white text-center text-sm">
+            <a className="text-white text-center text-sm cursor-pointer">
               J'ai déjà un compte
             </a>
           </Link>

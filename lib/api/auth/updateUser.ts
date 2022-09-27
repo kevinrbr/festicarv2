@@ -4,7 +4,8 @@ import supabase from "../supabase";
 export const updateUser = async (userId: string, data: IFormInput) => {
   const updates = {
     user_id: userId,
-    name: data.firstName,
+    firstName: data.firstName,
+    lastName: data.lastName,
   };
 
   const { error } = await supabase.from("profiles").upsert(updates, {
