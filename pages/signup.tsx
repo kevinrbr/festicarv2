@@ -1,14 +1,12 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-
 import { useRouter } from "next/router";
-import supabase from "../lib/api/supabase";
 import { NextPage } from "next";
 import Link from "next/link";
-
 import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 import { IFormInput } from "../types/login/FormInput";
 import { newUser } from "../lib/api/auth/newUser";
+import { updateUser } from "../lib/api/auth/updateUser";
 
 const SignUp: NextPage = () => {
   const router = useRouter();
@@ -17,25 +15,8 @@ const SignUp: NextPage = () => {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     const user = await newUser(data);
     if (user) {
-      updateProfile(user.id, data);
+      updateUser(user.id, data);
       router.push("/signin");
-    }
-  };
-
-  const updateProfile = async (userId: string, data: IFormInput) => {
-    const updates = {
-      user_id: userId,
-      name: data.firstName,
-    };
-
-    const { error } = await supabase.from("profiles").upsert(updates, {
-      returning: "minimal", // Don't return the value after inserting
-    });
-
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("ok");
     }
   };
 
