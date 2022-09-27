@@ -8,22 +8,16 @@ import Link from "next/link";
 
 import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 import { IFormInput } from "../types/login/FormInput";
+import { newUser } from "../lib/api/auth/newUser";
 
 const SignUp: NextPage = () => {
   const router = useRouter();
   const { register, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const { user, error } = await supabase.auth.signUp({
-      email: data.email,
-      password: data.password,
-    });
-
-    user && updateProfile(user.id, data);
-
-    if (error) {
-      alert(JSON.stringify(error));
-    } else {
+    const user = await newUser(data);
+    if (user) {
+      updateProfile(user.id, data);
       router.push("/signin");
     }
   };
