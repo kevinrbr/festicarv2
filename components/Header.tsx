@@ -14,8 +14,8 @@ export const Header = () => {
           </a>
         </Link>
         <div className="flex items-start">
-          {router.pathname != "/ajouter-trajet" && (
-            <Link href="/ajouter-trajet">
+          {router.pathname != "/addjourney" && (
+            <Link href="/addjourney">
               <a>
                 <button className="mr-6 font-regular">Ajouter un trajet</button>
               </a>
@@ -23,7 +23,7 @@ export const Header = () => {
           )}
           <Link href="/signin">
             <a>
-              <Image width={24} height={24} src={placeholder} />@{" "}
+              <Image width={24} height={24} src={placeholder} />
             </a>
           </Link>
         </div>

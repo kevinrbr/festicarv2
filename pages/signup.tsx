@@ -13,11 +13,14 @@ const SignUp: NextPage = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    const user = await newUser(data);
-    if (user) {
-      updateUser(user.id, data);
-      router.push("/signin");
-    }
+    newUser(data)
+      .then((user) => {
+        if (user) {
+          updateUser(user.id, data);
+        }
+        router.push("/signin");
+      })
+      .catch((error) => console.log("error"));
   };
 
   return (

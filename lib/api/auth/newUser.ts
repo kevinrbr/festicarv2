@@ -7,6 +7,5 @@ export const newUser = async (data: IFormInput) => {
     password: data.password,
   });
   if (error) return Promise.reject(error);
-  console.log(user);
   return user;
 };

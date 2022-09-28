@@ -6,7 +6,6 @@ import supabase from "../lib/api/supabase";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  console.log(supabase.auth.user());
   return (
     <div>
       {router.pathname !== "/signin" && router.pathname !== "/signup" ? (
