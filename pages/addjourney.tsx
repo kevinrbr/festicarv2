@@ -9,9 +9,9 @@ interface addJourneyProps {
   type: wayType;
 }
 
-const addJourney: NextPage<addJourneyProps> = () => {
+const AddJourney: NextPage<addJourneyProps> = () => {
   const [wayType, setWayType] = useState<wayType>();
-  getFestival();
+  // getFestival();
   return (
     <div className="md:max-w-2xl md:mx-auto">
       <Head>
@@ -22,14 +22,14 @@ const addJourney: NextPage<addJourneyProps> = () => {
           <BigCta
             title={"Je vais en festival"}
             subTitle={"Allons danser"}
-            setWayType={() => setWayType("go")}
+            onButtonType={() => setWayType("go")}
           />
         </div>
         <div>
           <BigCta
             title={"Je rentre de festival"}
             subTitle={"La fête est finie"}
-            setWayType={() => setWayType("return")}
+            onButtonType={() => setWayType("return")}
           />
         </div>
       </div>
@@ -37,4 +37,4 @@ const addJourney: NextPage<addJourneyProps> = () => {
   );
 };
 
-export default addJourney;
+export default AddJourney;

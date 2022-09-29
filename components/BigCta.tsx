@@ -1,17 +1,16 @@
-import React from "react";
-import { wayType } from "./../types/addJouney/wayType";
+import React, { MouseEventHandler } from "react";
 
 type BigCtaProps = {
   title: string;
   subTitle: string;
-  setWayType: React.Dispatch<React.SetStateAction<wayType>>;
+  onButtonType: MouseEventHandler<HTMLButtonElement>;
 };
 
-export const BigCta = ({ title, subTitle, setWayType }: BigCtaProps) => {
+export const BigCta = ({ title, subTitle, onButtonType }: BigCtaProps) => {
   return (
     <button
       className="bg-primary-300 rounded-lg text-white text-left min-w-[320px] flex justify-center"
-      onClick={() => setWayType("go")}
+      onClick={onButtonType}
     >
       <div className="py-4">
         <h3 className="font-heading font-semibold text-2xl">{title}</h3>
