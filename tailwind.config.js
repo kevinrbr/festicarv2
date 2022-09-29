@@ -6,9 +6,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {transitionProperty: {
+    extend: {
+      transitionProperty: {
       'right': 'right'
-  },},
+      },
+      boxShadow: {
+        'input': '0px 1px 4px rgba(0, 0, 0, 0.25)',
+      }
+    },
     fontFamily: {
       'sans': ['Satoshi', 'Helvetica', 'sans-serif'],
       'heading': ['Clash Grotesk'],

@@ -7,6 +7,7 @@ import { ArrowLongLeftIcon } from "@heroicons/react/24/outline";
 import { IFormInput } from "../types/login/FormInput";
 import { newUser } from "../lib/api/auth/newUser";
 import { updateUser } from "../lib/api/auth/updateUser";
+import Head from "next/head";
 
 const SignUp: NextPage = () => {
   const router = useRouter();
@@ -25,6 +26,9 @@ const SignUp: NextPage = () => {
 
   return (
     <div className="h-screen flex items-center justify-center bg-primary-300">
+      <Head>
+        <title>Inscription</title>
+      </Head>
       <div className="max-w-lg w-full">
         <Link href="/">
           <a className="text-white absolute top-8 left-12 flex items-center">

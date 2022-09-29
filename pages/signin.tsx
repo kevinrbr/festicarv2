@@ -6,6 +6,7 @@ import Link from "next/link";
 import { NextPage } from "next";
 import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 import { IFormInput } from "../types/login/FormInput";
+import Head from "next/head";
 
 const SignIn: NextPage = () => {
   const router = useRouter();
@@ -26,6 +27,9 @@ const SignIn: NextPage = () => {
 
   return (
     <div className="h-screen flex items-center justify-center bg-primary-300">
+      <Head>
+        <title>Connexion</title>
+      </Head>
       <div className="max-w-lg w-full">
         <Link href="/">
           <a className="text-white absolute top-8 left-12 flex items-center">

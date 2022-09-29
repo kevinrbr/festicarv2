@@ -2,14 +2,15 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import { BigCta } from "../components/BigCta";
-import { getFestival } from "./../lib/api/festival/getFestival";
-import { wayType } from "./../types/addJouney/wayType";
+import { AddCarPoolForm } from "../components/Form/AddCarPoolForm";
+import { getFestival } from "../lib/api/festival/getFestival";
+import { wayType } from "../types/addJouney/wayType";
 
-interface addJourneyProps {
+interface addCarPoolProps {
   type: wayType;
 }
 
-const AddJourney: NextPage<addJourneyProps> = () => {
+const AddCarPool: NextPage<addCarPoolProps> = () => {
   const [wayType, setWayType] = useState<wayType>();
   // getFestival();
   return (
@@ -33,8 +34,9 @@ const AddJourney: NextPage<addJourneyProps> = () => {
           />
         </div>
       </div>
+      <AddCarPoolForm />
     </div>
   );
 };
 
-export default AddJourney;
+export default AddCarPool;
