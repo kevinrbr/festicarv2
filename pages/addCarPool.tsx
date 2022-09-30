@@ -12,8 +12,6 @@ interface addCarPoolProps {
 
 const AddCarPool: NextPage<addCarPoolProps> = () => {
   const [wayType, setWayType] = useState<wayType>();
-  const festival = getFestival();
-  console.log(getFestival);
   return (
     <div className="md:max-w-2xl md:mx-auto">
       <Head>
