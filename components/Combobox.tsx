@@ -32,8 +32,10 @@ export const AutocompleteInput = () => {
         className="rounded-md py-4 pl-5 shadow-input text-base"
       />
       <Combobox.Options>
-        {filteredFestival?.map((person) => (
-          <Combobox.Option value={person}>{person}</Combobox.Option>
+        {filteredFestival?.map((person, index) => (
+          <Combobox.Option key={index} value={person}>
+            {person}
+          </Combobox.Option>
         ))}
       </Combobox.Options>
     </Combobox>

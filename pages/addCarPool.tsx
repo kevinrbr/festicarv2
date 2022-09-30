@@ -33,7 +33,7 @@ const AddCarPool: NextPage<addCarPoolProps> = () => {
           />
         </div>
       </div>
-      <AddCarPoolForm />
+      <AddCarPoolForm wayType={wayType} />
     </div>
   );
 };
