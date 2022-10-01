@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { getCity } from "../../lib/api/city/getCity";
 import { ICarPoolFormType } from "../../types/addJouney/CarPoolFormType";
 import { AutocompleteInput } from "../Combobox";
 
@@ -9,6 +10,7 @@ type AddCarPoolFormProps = {
 export const AddCarPoolForm = ({ wayType }: AddCarPoolFormProps) => {
   const { register, handleSubmit } = useForm<ICarPoolFormType>();
   const onSubmit: SubmitHandler<ICarPoolFormType> = async (data) => {};
+  getCity();
   return (
     <div className="mt-8">
       <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
@@ -27,6 +29,14 @@ export const AddCarPoolForm = ({ wayType }: AddCarPoolFormProps) => {
             className="rounded-md py-4 pl-5 text-xs shadow-input"
             type="text"
           />
+        </div>
+        <div className="">
+          <button
+            className="bg-primary-300 text-white text-lg px-8 py-2 mt-4 rounded-md"
+            type="submit"
+          >
+            Confirmer
+          </button>
         </div>
       </form>
     </div>

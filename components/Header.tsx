@@ -14,8 +14,8 @@ export const Header = () => {
           </a>
         </Link>
         <div className="flex items-start">
-          {router.pathname != "/addjourney" && (
-            <Link href="/addjourney">
+          {router.pathname != "/addCarPool" && (
+            <Link href="/addCarPool">
               <a>
                 <button className="mr-6 font-regular">Ajouter un trajet</button>
               </a>
